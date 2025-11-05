@@ -1,6 +1,3 @@
-using UnityEngine;
-
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,14 +13,14 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     Vector2 moveDir = new Vector2();
     Vector2 lastMoveDir;
+
+
+    private Vector3 boundary1;
+    private Vector3 boundary2;
+
+
     //Make instance of this script to be able reference from other scripts!
     public static PlayerController instance;
-
-
-    void FixedUpdate()
-    {
-        MoveCharacter();
-    }
 
 
     void Awake()
@@ -43,6 +40,12 @@ public class PlayerController : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+
+    void FixedUpdate()
+    {
+        MoveCharacter();
     }
 
 
@@ -72,5 +75,25 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isWalking", true);
         }
     }
+
+
+    //Method to set up the bounds which the player can not cross
+    public void SetBounds(Vector3 bound1, Vector3 bound2)
+    {
+        boundary1 = bound1 + new Vector3(.5f, 1f, 0f);
+        boundary2 = bound2 + new Vector3(-.5f, -1f, 0f);
+    }
+
+
+
+
+
+
+
+
 }
+
+
+
+
 
