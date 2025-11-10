@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-
 public class PlayerController : MonoBehaviour
 {
     [HideInInspector]
@@ -14,20 +13,17 @@ public class PlayerController : MonoBehaviour
     Vector2 moveDir = new Vector2();
     Vector2 lastMoveDir;
 
-
     private Vector3 boundary1;
     private Vector3 boundary2;
-
+    public bool canMove = true;
 
     //Make instance of this script to be able reference from other scripts!
     public static PlayerController instance;
-
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
 
         if (instance == null)
         {
@@ -42,23 +38,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     void FixedUpdate()
     {
         MoveCharacter();
     }
-
 
     private void MoveCharacter()
     {
         moveDir.x = Input.GetAxisRaw("Horizontal");
         moveDir.y = Input.GetAxisRaw("Vertical");
 
-
         moveDir.Normalize();
 
-
         bool isIdle = moveDir.x == 0 && moveDir.y == 0;
+
+        if (!canMove)
+        {
+            isIdle = true;
+        }
 
 
         if (isIdle)
@@ -76,7 +73,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     //Method to set up the bounds which the player can not cross
     public void SetBounds(Vector3 bound1, Vector3 bound2)
     {
@@ -87,13 +83,4 @@ public class PlayerController : MonoBehaviour
 
 
 
-
-
-
-
 }
-
-
-
-
-

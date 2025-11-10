@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+
+
 public class CameraController : MonoBehaviour
 {
     [HideInInspector]
@@ -11,8 +13,8 @@ public class CameraController : MonoBehaviour
     private Vector3 boundary2;
     private float halfHeight;
     private float halfWidth;
-    public float cameraYOffset;
-    // Start is called before the first frame update
+
+
     void Start()
     {
         player = FindObjectOfType<PlayerController>().transform;
@@ -35,10 +37,27 @@ public class CameraController : MonoBehaviour
         }
     }
 
-// Update is called once per frame
-void LateUpdate()
+
+
+
+    void LateUpdate()
     {
-        transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
+       // transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
+
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
