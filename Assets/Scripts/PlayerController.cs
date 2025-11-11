@@ -60,13 +60,13 @@ public class PlayerController : MonoBehaviour
 
         if (isIdle)
         {
-            rigidBody.velocity = Vector2.zero;
+            rigidBody.linearVelocity = Vector2.zero;
             animator.SetBool("isWalking", false);
         }
         else
         {
             lastMoveDir = moveDir;
-            rigidBody.velocity = moveDir * moveSpeed;
+            rigidBody.linearVelocity = moveDir * moveSpeed;
             animator.SetFloat("moveX", moveDir.x);
             animator.SetFloat("moveY", moveDir.y);
             animator.SetBool("isWalking", true);
