@@ -35,10 +35,10 @@ public class MainObjectsLoader : MonoBehaviour
             GameManager.instance = Instantiate(gameMan).GetComponent<GameManager>();
         }
 
-        // if(AudioManager.instance == null)
-        // {
-        //     AudioManager.instance = Instantiate(audioMan).GetComponent<AudioManager>();
-        // }
+        if (AudioManager.instance == null)
+        {
+            AudioManager.instance = Instantiate(audioMan).GetComponent<AudioManager>();
+        }
 
         // if(BattleManager.instance == null)
         // {
@@ -46,5 +46,9 @@ public class MainObjectsLoader : MonoBehaviour
         // }
     }
 }
+
+
+
+
 
 

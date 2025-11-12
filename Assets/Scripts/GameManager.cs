@@ -10,12 +10,14 @@ public class GameManager : MonoBehaviour
 
     [Header("Currently active menus")]
     //Bools for checking if one of these menus is currently active
-    public bool cutSceneActive;
     public bool gameMenuOpen;
     public bool dialogueActive;
     public bool battleActive;
     public bool fadingBetweenAreas;
     public bool eventLockActive;
+
+    public bool cutSceneActive;
+    public bool cutSceneMusicActive;
 
 
     [Header("Character Bools")]
